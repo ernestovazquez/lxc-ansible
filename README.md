@@ -1,3 +1,5 @@
-# automatizacion_iaw
-Ejemplo de automatización con ansible, para el módulo de IAW
-# lxc-ansible
+# LXC-Ansible
+
+Receta ansible para la práctica de Vagrant con LXC
+
+
