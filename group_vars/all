@@ -1,0 +1,5 @@
+wordpress_bd: wordpress_bd
+wordpress_user: userwp
+wordpress_pass: userwp
+wordpress_host: 192.168.122.100
+mariadb_host: '%'

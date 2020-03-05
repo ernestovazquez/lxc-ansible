@@ -1,0 +1,21 @@
+- name: ensure mariadb is installed
+  apt:
+    pkg:
+      - mariadb-server
+      - python-mysqldb
+    state: latest
+- name: create database wordpress
+  mysql_db: name={{wordpress_bd}} state=present
+
+- name: create user mysql wordpress
+  mysql_user: name={{wordpress_user}} host={{mariadb_host}} password={{wordpress_pass}} priv={{wordpress_bd}}.*:ALL,GRANT
+
+- name: ensure mariadb binds to internal interface
+  template: >-
+    src=etc/mysql/mariadb.conf.d/50-server.cnf
+    dest=/etc/mysql/mariadb.conf.d/50-server.cnf
+    owner=root
+    group=root
+    mode=644
+  notify:
+      restart mariadb
